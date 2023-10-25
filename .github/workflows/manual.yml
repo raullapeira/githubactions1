@@ -1,7 +1,13 @@
-on: [ push ]
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Who to greet?'
+        required: false
+        default: 'World'
 
 jobs:
-  test:
+  manual:
     strategy:
       matrix:
         os: [ ubuntu-latest, macos-latest, windows-latest ]
@@ -11,6 +17,6 @@ jobs:
       - id: hello
         uses: ./
         with:
-          who-to-greet: 'Mona the Octocat'
+          who-to-greet: ${{ github.event.inputs.name }}
       - run: echo random-number ${{ steps.hello.outputs.random-number }}
         shell: bash
