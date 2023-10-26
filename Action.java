@@ -2,7 +2,7 @@ import java.util.Random;
 
 class Action {
   /** Entry-point for this Java action. */
-  public static void main(String... args) {
+  public static void mai(String... args) {
     System.out.printf("Hello %s.%n", args.length == 0 ? "Java" : args[0]);
     var gaussian = new Random().nextGaussian();
     GitHub.setOutput("random-number", gaussian);
